@@ -3,7 +3,7 @@ import { addNewClaim } from "../../data/DataFunctions"
 import CountrySelector from '../CountrySelector'
 import './AddClaims.css'
 
-const AddClaims = () => {
+const AddClaimsPet = () => {
 
     const [message, setMessage] = useState("");
 
@@ -46,7 +46,7 @@ const AddClaims = () => {
 
     return (
     <form className="addClaimsForm" onSubmit={handleSubmit}  >
-        <h2>New Claim</h2>
+        <h2>New Pet Claim</h2>
         <label htmlFor="id">Oder Id</label>
         <input type="text" id="orderId" value={newClaim.orderId} onChange={handleChange} />
         <br/>
@@ -67,24 +67,6 @@ const AddClaims = () => {
         <br/>
         <CountrySelector value={newClaim.country} changeCountry={changeCountry} />
         <input type="text" id="country" value={newClaim.country} onChange={handleChange} />
-        <br/>
-        <label htmlFor="streetName">House Number & Street Name</label>
-        <input type="text"  id="streetName" value={newClaim.streetName} onChange={handleChange}/>
-        <br/>
-        <label htmlFor="city">Town or City</label>
-        <input type="text"  id="city" value={newClaim.city} onChange={handleChange}/>
-        <br/>
-        <label htmlFor="zipCode">Zip code / Post Code</label>
-        <input type="text"  id="zipCode" value={newClaim.zipCode} onChange={handleChange}/>
-        <br/>
-        <label htmlFor="make">Vehicle Make</label>
-        <input type="text"  id="make" value={newClaim.make} onChange={handleChange}/>
-        <br/>
-        <label htmlFor="model">Vehicle Model</label>
-        <input type="text"  id="model" value={newClaim.model} onChange={handleChange}/>
-        <br/>
-        <label htmlFor="modelYear">Model Year</label>
-        <input type="text"  id="modelYear" value={newClaim.modelYear} onChange={handleChange}/>
         <br/>
         <label htmlFor="animalType">Animal Type</label>
         <input type="text"  id="animalType" value={newClaim.animalType} onChange={handleChange}/>
@@ -134,4 +116,4 @@ const AddClaims = () => {
     )
 }
 
-export default AddClaims;
+export default AddClaimsPet;

@@ -7,7 +7,7 @@ import CountrySelector from "../CountrySelector";
 import { UserContext } from "../../contexts/UserContext";
 import ClaimStatusSelector from "../ClaimStatusSelector";
 
-const ClaimsTable = (props) => {
+const ClaimsTableStatus = (props) => {
 
     const [claims, setClaims] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -31,9 +31,9 @@ const ClaimsTable = (props) => {
 
     }, [props.searchTerm]  );
 
-    const loadData = (country) => {
+    const loadDataClaimStatus = (claimStatus) => {
         console.log(currentUser);
-        getAllClaimsForCountry(country, currentUser.user.name, currentUser.user.password)
+        getAllClaimsForClaimStatus(claimStatus, currentUser.user.name, currentUser.user.password)
             .then ( response => {
                 console.log(response)
                 if (response.status === 200) {
@@ -51,24 +51,23 @@ const ClaimsTable = (props) => {
     
     //debugger;
        
-    const [selectedCountry, setSelectedCountry] = useState("");
+    const [selectedClaimStatus, setSelectedClaimStatus] = useState("");
 
     useEffect( ()=> {
-        const country = searchParams.get("country");
-        console.log(country)
-        if (country !== selectedCountry) {
-            setSelectedCountry(country);
-            loadData(country);
+        const claimStatus = searchParams.get("claimStatus");
+        console.log(claimStatus)
+        if (claimStatus !== selectedClaimStatus) {
+            setSelectedClaimStatus(claimStatus);
+            loadDataClaimStatus(claimStatus);
         }
      }, [searchParams] );
 
-    const changeCountry = (country) => {
-        setSearchParams({"country" : country});
+    const changeClaimStatus = (claimStatus) => {
+        setSearchParams({"claimStatus" : claimStatus});
     }
 
-    
     return (<>
-        {!isLoading && props.searchTerm === "" && <CountrySelector changeCountry={changeCountry} />}
+        {!isLoading && props.searchTerm === "" && <ClaimStatusSelector changeClaimStatus={changeClaimStatus}  />}
         {isLoading && <p style={{textAlign:"center"}} >Please wait... loading</p>}
         {!isLoading &&
         <table className="claimsTable">
@@ -93,7 +92,7 @@ const ClaimsTable = (props) => {
                     <th>Claim Estimate $:</th>
                     <th>Claim Reason</th>
                     <th>Claim Desription</th>
-                    <th>Claim Status</th>
+                    <th>Cliam Status</th>
                     <th>Note</th>
                     <th>Task</th>
                     <th>Payout $</th>
@@ -117,7 +116,7 @@ const ClaimsTable = (props) => {
                     title = {claim.title}  country = {claim.country} streetName={claim.streetName} city={claim.city} zipCode={claim.zipCode}
                     make={claim.make} model={claim.model} modelYear={claim.modelYear} animalType={claim.animalType} animalBreed={claim.animalBreed}
                     policyNum = {claim.policyNum} insuranceType={claim.insuranceType} claimEstimate={claim.claimEstimate} claimReason={claim.claimReason} 
-                    claimDescription={claim.claimDescription} claimStatus={claim.claimStatus} note={claim.note} task={claim.task} payout={claim.payout} date={claim.date} />
+                    claimDescription={claim.claimDescription}  claimStatus={claim.claimStatus} note={claim.note} task={claim.task} payout={claim.payout} date={claim.date} />
                 }   )   }
     
             </tbody>
@@ -128,4 +127,4 @@ const ClaimsTable = (props) => {
     
 }
 
-export default ClaimsTable;
+export default ClaimsTableStatus;

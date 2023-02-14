@@ -1,21 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="20679b6a-3d43-4488-86cb-483b1860a402" name="Default Changelist" comment="" />
+    <list default="true" id="20679b6a-3d43-4488-86cb-483b1860a402" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/AddClaims/AddClaims.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/AddClaims/AddClaims.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ClaimsTable/ClaimsRow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ClaimsTable/ClaimsRow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ClaimsTable/ClaimsTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ClaimsTable/ClaimsTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ClaimsTable/FindClaims.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ClaimsTable/FindClaims.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Data/DataFunctions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Webpages/Menu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Webpages/NewClaims.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Webpages/Search.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Webpages/Style.css" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2Ity0OPHxwqAU4r1QSKGixEBRdB" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>

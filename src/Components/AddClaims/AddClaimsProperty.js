@@ -3,7 +3,7 @@ import { addNewClaim } from "../../data/DataFunctions"
 import CountrySelector from '../CountrySelector'
 import './AddClaims.css'
 
-const AddClaims = () => {
+const AddClaimsProperty = () => {
 
     const [message, setMessage] = useState("");
 
@@ -32,7 +32,7 @@ const AddClaims = () => {
         addNewClaim(newClaim)
             .then( response => {
                 if (response.status === 200) {
-                    setMessage("New Claim added with id " + response.data.id);
+                    setMessage("New transaction added with id " + response.data.id);
                 }
                 else {
                     setMessage("Something went wrong - status code was " + response.status);
@@ -46,7 +46,7 @@ const AddClaims = () => {
 
     return (
     <form className="addClaimsForm" onSubmit={handleSubmit}  >
-        <h2>New Claim</h2>
+        <h2>New Property Claim</h2>
         <label htmlFor="id">Oder Id</label>
         <input type="text" id="orderId" value={newClaim.orderId} onChange={handleChange} />
         <br/>
@@ -77,30 +77,13 @@ const AddClaims = () => {
         <label htmlFor="zipCode">Zip code / Post Code</label>
         <input type="text"  id="zipCode" value={newClaim.zipCode} onChange={handleChange}/>
         <br/>
-        <label htmlFor="make">Vehicle Make</label>
-        <input type="text"  id="make" value={newClaim.make} onChange={handleChange}/>
-        <br/>
-        <label htmlFor="model">Vehicle Model</label>
-        <input type="text"  id="model" value={newClaim.model} onChange={handleChange}/>
-        <br/>
-        <label htmlFor="modelYear">Model Year</label>
-        <input type="text"  id="modelYear" value={newClaim.modelYear} onChange={handleChange}/>
-        <br/>
-        <label htmlFor="animalType">Animal Type</label>
-        <input type="text"  id="animalType" value={newClaim.animalType} onChange={handleChange}/>
-        <br/>
-        <label htmlFor="animalBreed">Animal Breed</label>
-        <input type="text"  id="animalBreed" value={newClaim.animalBreed} onChange={handleChange}/>
-        <br/>
         <label htmlFor="policyNum">Policy Number</label>
         <input type="text"  id="policyNum" value={newClaim.policyNum} onChange={handleChange}/>
         <br/>
         <label htmlFor="insuranceType">Insurance Type</label>
             <select type="text"  id="insuranceType" value={newClaim.insuranceType} onChange={handleChange}>
                 <option value="" disabled={true}>Please Select</option>
-                <option value="Property">Property</option>
-                <option value="Motor">Motor</option>
-                <option value="Pet">Pet</option>
+                <option  value="Property" selected>Property</option>
             </select>
         <br/>
         <label htmlFor="claimEstimate">Claim Estimate</label>
@@ -134,4 +117,4 @@ const AddClaims = () => {
     )
 }
 
-export default AddClaims;
+export default AddClaimsProperty;

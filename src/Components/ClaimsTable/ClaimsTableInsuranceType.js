@@ -1,13 +1,13 @@
 import { useContext, useEffect, useState } from "react";
-import { getAllClaimsForClaimStatus, getAllClaimsForCountry, getAllClaimsForOrderId, getCountries  } from "../../data/DataFunctions";
+import { getAllClaimsForClaimStatus, getAllClaimsForCountry, getAllClaimsForInsuranceType, getAllClaimsForOrderId, getAllClaimsForSurname, getCountries  } from "../../data/DataFunctions";
 import ClaimsRow from "./ClaimsRow";
 import './Claims.css'
 import { useSearchParams } from 'react-router-dom';
 import CountrySelector from "../CountrySelector";
 import { UserContext } from "../../contexts/UserContext";
-import ClaimStatusSelector from "../ClaimStatusSelector";
+import InsuranceTypeSelector from "../InsuranceTypeSelector";
 
-const ClaimsTable = (props) => {
+const ClaimsTableInsuranceType = (props) => {
 
     const [claims, setClaims] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -19,7 +19,7 @@ const ClaimsTable = (props) => {
     useEffect( () => {
         if(props.searchTerm !== "") {
             setIsLoading(true);
-            getAllClaimsForOrderId(props.searchTerm)
+            getAllClaimsForSurname(props.searchTerm)
                 .then( response => {
                         setClaims(response.data);
                         setIsLoading(false);
@@ -31,9 +31,9 @@ const ClaimsTable = (props) => {
 
     }, [props.searchTerm]  );
 
-    const loadData = (country) => {
+    const loadDataInsuranceType = (insuranceType) => {
         console.log(currentUser);
-        getAllClaimsForCountry(country, currentUser.user.name, currentUser.user.password)
+        getAllClaimsForInsuranceType(insuranceType, currentUser.user.name, currentUser.user.password)
             .then ( response => {
                 console.log(response)
                 if (response.status === 200) {
@@ -51,24 +51,24 @@ const ClaimsTable = (props) => {
     
     //debugger;
        
-    const [selectedCountry, setSelectedCountry] = useState("");
+    const [selectedInsuranceType, setSelectedInsuranceType] = useState("");
 
     useEffect( ()=> {
-        const country = searchParams.get("country");
-        console.log(country)
-        if (country !== selectedCountry) {
-            setSelectedCountry(country);
-            loadData(country);
+        const insuranceType = searchParams.get("insuranceType");
+        console.log(insuranceType)
+        if (insuranceType !== selectedInsuranceType) {
+            setSelectedInsuranceType(insuranceType);
+            loadDataInsuranceType(insuranceType);
         }
      }, [searchParams] );
 
-    const changeCountry = (country) => {
-        setSearchParams({"country" : country});
+    const changeInsuranceType = (insuranceType) => {
+        setSearchParams({"insuranceType" : insuranceType});
     }
 
     
     return (<>
-        {!isLoading && props.searchTerm === "" && <CountrySelector changeCountry={changeCountry} />}
+        {!isLoading && props.searchTerm === "" && <InsuranceTypeSelector changeInsuranceType={changeInsuranceType} />}
         {isLoading && <p style={{textAlign:"center"}} >Please wait... loading</p>}
         {!isLoading &&
         <table className="claimsTable">
@@ -93,7 +93,7 @@ const ClaimsTable = (props) => {
                     <th>Claim Estimate $:</th>
                     <th>Claim Reason</th>
                     <th>Claim Desription</th>
-                    <th>Claim Status</th>
+                    <th>Cliam Status</th>
                     <th>Note</th>
                     <th>Task</th>
                     <th>Payout $</th>
@@ -117,7 +117,7 @@ const ClaimsTable = (props) => {
                     title = {claim.title}  country = {claim.country} streetName={claim.streetName} city={claim.city} zipCode={claim.zipCode}
                     make={claim.make} model={claim.model} modelYear={claim.modelYear} animalType={claim.animalType} animalBreed={claim.animalBreed}
                     policyNum = {claim.policyNum} insuranceType={claim.insuranceType} claimEstimate={claim.claimEstimate} claimReason={claim.claimReason} 
-                    claimDescription={claim.claimDescription} claimStatus={claim.claimStatus} note={claim.note} task={claim.task} payout={claim.payout} date={claim.date} />
+                    claimDescription={claim.claimDescription}  claimStatus={claim.claimStatus} note={claim.note} task={claim.task} payout={claim.payout} date={claim.date} />
                 }   )   }
     
             </tbody>
@@ -128,4 +128,4 @@ const ClaimsTable = (props) => {
     
 }
 
-export default ClaimsTable;
+export default ClaimsTableInsuranceType;

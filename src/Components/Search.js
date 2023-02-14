@@ -33,10 +33,13 @@ const Search = (props) => {
         
     }
 
-    return <div className="container">
+    return <div className="searchBox">
         <form onSubmit={doSearch}>
-            <label htmlFor="id" >Order Id</label>
-            <input id="id" type="text" onChange={handleChange} value={localSearchTerm}/>
+            <label htmlFor="orderId" >Order Id</label>
+            <input id="orderId" type="text" onChange={handleChange} value={localSearchTerm}
+                style ={{border: valid ? "1px solid #000" : "2px solid #f00"}}
+                className={valid ? "" : "searchBoxError"}
+            />
             <button type="submit" disabled={!valid || !touched}>Search</button>
             <button onClick={clearForm} >Reset</button>
         </form>
